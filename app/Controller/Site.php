@@ -3,7 +3,7 @@
 namespace Controller;
 
 use Model\User;
-use Model\Post;
+use Model\Premise;
 use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
@@ -12,8 +12,8 @@ class Site
 {
     public function index(Request $request): string
     {
-       $posts = Post::all();
-       return (new View())->render('site.post', ['posts' => $posts]);
+       $premises = Premise::all();
+       return (new View())->render('site.post', ['premises' => $premises]);
     }
     
 
