@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Subdivision;
 use Model\User;
 use Model\Premise;
 use Src\View;
@@ -22,7 +23,14 @@ class Site
        return new View('site.hello', ['message' => 'hello working']);
    }
 
-   public function signup(Request $request): string
+    public function subdivision(Request $request): string
+    {
+        $subdivisions = Subdivision::all();
+        return (new View())->render('site.subdivision', ['subdivisions' => $subdivisions]);
+    }
+
+
+    public function signup(Request $request): string
    {
       if ($request->method === 'POST' && User::create($request->all())) {
           app()->route->redirect('/go');
@@ -41,7 +49,7 @@ class Site
             app()->route->redirect('/hello');
     }
         //Если аутентификация не удалась, то сообщение об ошибке
-        return new View('site.login', ['message' => 'Неправильные логин или пароль']);
+        return new View('site.login', ['message' => 'Неправильные логин или пароль!']);
     }
 
     public function logout(): void
