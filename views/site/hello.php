@@ -21,6 +21,9 @@
     div>p>a:hover{
         color: #314448;
     }
+    a{
+        text-decoration: none;
+    }
 </style>
 <div><p><a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделения</a></p></div>
 <div><p><a href="<?= app()->route->getUrl('/go') ?>">Помещение</a></p></div>

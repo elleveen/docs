@@ -13,10 +13,18 @@ class Site
 {
     public function index(Request $request): string
     {
+
        $premises = Premise::all();
        return (new View())->render('site.post', ['premises' => $premises]);
     }
-    
+    public function premises_add(Request $request): string
+    {
+        if ($request->method === 'POST' && Premise::create($request->all())) {
+            app()->route->redirect('/go');
+        }
+        return new View('site.premises_add');
+    }
+
 
    public function hello(): string
    {
@@ -29,6 +37,39 @@ class Site
         return (new View())->render('site.subdivision', ['subdivisions' => $subdivisions]);
     }
 
+    public function subdivision_add(Request $request): string
+    {
+        if ($request->method === 'POST' && Subdivision::create($request->all())) {
+            app()->route->redirect('/subdivision');
+        }
+        return new View('site.subdivision_add');
+    }
+
+//    public function premise_update(Request $request): string
+//    {
+//        $hall_list = Hall::all();
+//        $genre_list = Genre::all();
+//        $publisher_list = Publisher::all();
+//        $book = Book::where('book_id', $request->id)->get();
+//
+//
+//        if ($request->method == "POST" && Book::where('book_id', $request->id)->update([
+//                'name' => $request->name,
+//                'author' => $request->author,
+//                'date_publish' => $request->date_publish,
+//                'price' => $request->price,
+//                'annotation'=>$request->annotation,
+//                'new' => $request->new,
+//                'genre_id'=>$request->genre_id,
+//                'hall_id'=>$request->hall_id,
+//                'publisher_id'=>$request->publisher_id,
+//
+//            ])) {
+//            app()->route->redirect('/books');
+//        }
+//
+//        return (new View())->render('site.book.book_update', ['hall_list' => $hall_list, 'genre_list' => $genre_list, 'publisher_list' => $publisher_list, 'book'=>$book]);
+//    }
 
     public function signup(Request $request): string
    {
