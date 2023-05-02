@@ -23,7 +23,7 @@
     }
     label{
         font-size: 20px;
-        width: 200px;
+        width: 250px;
         color: #314448;
 
     }
@@ -57,10 +57,9 @@
     }
 </style>
 <form method="post">
-    <label>Название кабинета<input type="text" name="name"></label>
-    <label>Номер кабинета<input type="text" name="number"></label>
-    <label>Количество мест<input type="number" name="number_of_seats" ></label>
-    <label>Площадь<input type="number" name="square"></label>
+    <label>Имя пользователя<input type="text" name="name"></label>
+    <label>Логин<input type="text" name="login"></label>
+    <label>Пароль<input type="text" name="password"></label>
     <button>Добавить</button>
 </form>
 </form>

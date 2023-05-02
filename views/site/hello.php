@@ -25,5 +25,21 @@
         text-decoration: none;
     }
 </style>
-<div><p><a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделения</a></p></div>
-<div><p><a href="<?= app()->route->getUrl('/go') ?>">Помещение</a></p></div>
+<?php
+
+use Src\Auth\Auth;
+
+if (Auth::user()->role->name_role === 'admin'):
+    ?>
+    <div><p><a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделения</a></p></div>
+    <div><p><a href="<?= app()->route->getUrl('/go') ?>">Помещение</a></p></div>
+    <div><p><a href="<?= app()->route->getUrl('/users') ?>">Пользователи</a></p></div>
+<?php
+else:
+    ?>
+    <div><p><a href="<?= app()->route->getUrl('/subdivision') ?>">Подразделения</a></p></div>
+    <div><p><a href="<?= app()->route->getUrl('/go') ?>">Помещение</a></p></div>
+<?php
+endif;
+?>
+

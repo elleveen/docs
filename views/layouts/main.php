@@ -19,7 +19,7 @@
     }
     nav>a:last-child, nav>a:nth-child(2){
         color:white;
-        margin-left: 930px;
+        margin-left: 900px;
         font-size: 20px;
         text-decoration: none;
     }
@@ -42,7 +42,7 @@
        if (!app()->auth::check()):
            ?>
            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-           <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+<!--           <a href="--><?php //= app()->route->getUrl('/signup') ?><!--">Регистрация</a>-->
        <?php
        else:
            ?>

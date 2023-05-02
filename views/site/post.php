@@ -90,8 +90,9 @@
             ';
         }
     ?>
+
 </table>
 <section>
-    <div><a href="<?= app()->route->getUrl('/premises_add') ?>">Добавить</a></div>
+    <div><a href="<?= app()->route->getUrl('/add_premises') ?>">Добавить</a></div>
     <div><a>Изменить</a></div>
 </section>
