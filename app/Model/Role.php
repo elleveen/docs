@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ class Role extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'title',
+        'title', 'name_role', 'code'
     ];
 
     protected static function booted()

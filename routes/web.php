@@ -5,19 +5,19 @@ use Src\Route;
 
 Route::add('GET', '/hello', [Controller\Site::class, 'hello'])
     ->middleware('auth');
-Route::add('GET', '/go', [Controller\Site::class, 'index'])
+Route::add('GET', '/premises', [Controller\PremiseView::class, 'premises'])
     ->middleware('auth');
-Route::add(['GET', 'POST'], '/add_premises', [Controller\Site::class, 'add_premises'])
+Route::add(['GET', 'POST'], '/add_premises', [Controller\PremiseView::class, 'add_premises'])
     ->middleware('auth');
-Route::add('GET', '/subdivision', [Controller\Site::class, 'subdivision'])
+Route::add('GET', '/subdivision', [Controller\SubdivisionView::class, 'subdivision'])
     ->middleware('auth');
-Route::add(['GET', 'POST'], '/add_subdivision', [Controller\Site::class, 'add_subdivision'])
+Route::add(['GET', 'POST'], '/add_subdivision', [Controller\SubdivisionView::class, 'add_subdivision'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup']);
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
-Route::add('GET', '/users', [Controller\Site::class, 'users'])
+Route::add('GET', '/users', [Controller\UsersView::class, 'users'])
     ->middleware('auth', 'can:admin');
-Route::add(['GET', 'POST'], '/add_users', [Controller\Site::class, 'add_users'])
+Route::add(['GET', 'POST'], '/add_users', [Controller\UsersView::class, 'add_users'])
     ->middleware('auth', 'can:admin');
 
