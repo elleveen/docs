@@ -9,6 +9,6 @@ class Premise extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable  = ['name', 'number', 'number_of_seates', 'square', 'id_subdivision', 'id_type' ];
+    protected $fillable  = ['id', 'name', 'number', 'number_of_seates', 'square', 'id_subdivision', 'id_type' ];
 }
 

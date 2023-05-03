@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Premise;
 use Model\Subdivision;
 use Model\Type_Subdivision;
 use Src\Request;
@@ -23,4 +24,11 @@ class SubdivisionView{
         }
         return new View('site.subdivisions.add_subdivision', ['subdivisions' => $subdivisions,'type_subdivisions'=>$type_subdivisions]);
     }
+    public function delete_subdivisions(Request $request): void
+    {
+        if (Subdivision::where('id', $request->id)->delete()) {
+            app()->route->redirect('/subdivision');
+        }
+    }
+
 }

@@ -9,5 +9,5 @@ class Subdivision extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable  = ['name_subdivision', 'number_cabinets', 'id_type', 'square', 'address' ];
+    protected $fillable  = ['id', 'name_subdivision', 'number_cabinets', 'id_type', 'square', 'address' ];
 }

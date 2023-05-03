@@ -11,16 +11,17 @@
         </tr>
         <?php
         foreach ($subdivisions as $subdivision) {
-            echo '
-                    <tr>
-                        <td>'. $subdivision->id .'</td>
-                        <td>'. $subdivision->name_subdivision .'</td>
-                        <td>'. $subdivision->number_cabinets .'</td>
-                        <td>'. $subdivision->id_type .'</td>
-                        <td>'. $subdivision->square.'</td>
-                        <td>'. $subdivision->address .'</td>
-                    </tr>
-                ';
+            ?>
+            <tr>
+                <td><?=$subdivision->id ?></td>
+                <td><?= $subdivision->name_subdivision ?></td>
+                <td><?= $subdivision->number_cabinets ?></td>
+                <td><?= $subdivision->id_type ?></td>
+                <td><?= $subdivision->square ?></td>
+                <td><?= $subdivision->address ?></td>
+                <td><a href="delete-subdivisions?id=<?=$subdivision->id?>">Удалить</a></td>
+            </tr>
+            <?php
         }
         ?>
     </table>

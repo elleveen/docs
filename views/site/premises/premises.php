@@ -16,17 +16,19 @@
     </tr>
     <?php
     foreach ($premises as $premise) {
-        echo '
+        ?>
                 <tr>
-                    <td>'. $premise->id .'</td>
-                    <td>'. $premise->name .'</td>
-                    <td>'. $premise->number .'</td>
-                    <td>'. $premise->number_of_seates .'</td>
-                    <td>'. $premise->square .'</td>
-                    <td>'. $premise->id_subdivision  .'</td>
-                    <td>'. $premise->id_type  .'</td>
+                    <td><?=$premise->id ?></td>
+                    <td><?= $premise->name ?></td>
+                    <td><?= $premise->number ?></td>
+                    <td><?= $premise->number_of_seates ?></td>
+                    <td><?= $premise->square ?></td>
+                    <td><?= $premise->id_subdivision ?></td>
+                    <td><?= $premise->id_type  ?></td>
+                    <td><a href="delete-premises?id=<?=$premise->id?>">Удалить</a></td>
+                    <td><a href="<?= app()->route->getUrl('/update_premises') ?>">Изменить</a></td>
                 </tr>
-            ';
+        <?php
     }
     ?>
 
@@ -34,6 +36,6 @@
 <div class="sum"><a>Подсчитать общую площадь</a></div>
 <section>
     <div><a href="<?= app()->route->getUrl('/add_premises') ?>">Добавить</a></div>
-    <div><a href="<?= app()->route->getUrl('/update_premises') ?>">Изменить</a></div>
+
 </section>
 </div>
