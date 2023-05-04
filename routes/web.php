@@ -26,4 +26,6 @@ Route::add('GET', '/users', [Controller\UsersView::class, 'users'])
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/add_users', [Controller\UsersView::class, 'add_users'])
     ->middleware('auth', 'can:admin');
+Route::add(['GET', 'POST'], '/delete-users', [Controller\UsersView::class, 'delete_users'])
+    ->middleware('auth', 'can:admin');
 

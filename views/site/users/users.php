@@ -10,15 +10,16 @@
         </tr>
         <?php
         foreach ($users as $user) {
-            echo '
-                    <tr>
-                        <td>'. $user->id .'</td>
-                        <td>'. $user->name .'</td>
-                        <td>'. $user->id_role.'</td>
-                        <td>'. $user->login .'</td>
-                        <td>'. $user->password .'</td>
+            ?>
+                <tr>
+                    <td><?= $user->id ?></td>
+                    <td><?= $user->name ?></td>
+                    <td><?= $user->id_role ?></td>
+                    <td><?= $user->login ?></td>
+                    <td><?= $user->password ?></td>
+                    <td><a href="delete-users?id=<?=$user->id?>">Удалить</a></td>
                     </tr>
-                ';
+            <?php
         }
         ?>
     </table>

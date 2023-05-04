@@ -1,4 +1,3 @@
-
 <?php
 
 use Src\Auth\Auth;

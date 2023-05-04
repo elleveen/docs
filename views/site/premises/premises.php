@@ -26,7 +26,7 @@
                     <td><?= $premise->id_subdivision ?></td>
                     <td><?= $premise->id_type  ?></td>
                     <td><a href="delete-premises?id=<?=$premise->id?>">Удалить</a></td>
-                    <td><a href="<?= app()->route->getUrl('/update_premises') ?>">Изменить</a></td>
+                    <td><a href="<?= app()->route->getUrl('/update_premises?id=' . $premise->id) ?>">Изменить</a></td>
                 </tr>
         <?php
     }

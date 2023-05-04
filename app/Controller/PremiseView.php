@@ -28,17 +28,27 @@ class PremiseView {
         return (new View())->render('site.premises.add_premises', ['premises' => $premises, 'subdivisions' => $subdivisions,
             'type_premises' => $type_premises]);
     }
-    public function update_premises(Request $request): string
+    public function update_premises(Request $request)
     {
         $subdivisions = Subdivision::all();
-        $premises = Premise::all();
         $type_premises = Type_Premise::all();
-        if ($request->method === 'POST' && Premise::update($request->all())) {
-            app()->route->redirect('/premises');
+        $premises= Premise::where('id', $request->id)->first();
+        if($request->method === 'POST') {
+            $updatePremise = [
+                'name' => $request->get('name'),
+                'number' => $request->get('number'),
+                'number_of_seates' => $request->get('number_of_seates'),
+                'square' => $request->get('square'),
+                'id_subdivision' => $request->get('id_subdivision'),
+                'id_type' => $request->get('id_type'),
+            ];
+            $premises->update($updatePremise);
+            return app()->route->redirect('/premises?id=' . $premises->id);
         }
         return (new View())->render('site.premises.update_premises', ['premises' => $premises, 'subdivisions' => $subdivisions,
             'type_premises' => $type_premises]);
     }
+
     public function delete_premises(Request $request): void
     {
         if (Premise::where('id', $request->id)->delete()) {

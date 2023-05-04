@@ -21,4 +21,10 @@ class UsersView{
         }
         return new View('site.users.add_users', ['roles' => $roles]);
     }
+    public function delete_users(Request $request): void
+    {
+        if (User::where('id', $request->id)->delete()) {
+            app()->route->redirect('/users');
+        }
+    }
 }
