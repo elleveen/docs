@@ -1,5 +1,6 @@
 <div class="add_premises">
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Название кабинета<input type="text" name="name" value="<?=$premises->name ?>"></label>
         <label>Номер кабинета<input type="text" name="number" value="<?=$premises->number?>"></label>
         <label>Количество мест<input type="number" name="number_of_seates" value="<?=$premises->number_of_seates?>"></label>

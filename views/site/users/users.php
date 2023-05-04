@@ -18,13 +18,11 @@
                     <td><?= $user->login ?></td>
                     <td><?= $user->password ?></td>
                     <td><a href="delete-users?id=<?=$user->id?>">Удалить</a></td>
+                    <td><a href="<?= app()->route->getUrl('/update_user?id=' . $user->id) ?>">Изменить</a></td>
                     </tr>
             <?php
         }
         ?>
     </table>
-    <section>
-        <div><a href="<?= app()->route->getUrl('/add_users') ?>">Добавить</a></div>
-        <div><a>Изменить</a></div>
-    </section>
+    <div class="add"><a href="<?= app()->route->getUrl('/add_users') ?>">Добавить</a></div>
 </div>

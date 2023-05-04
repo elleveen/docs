@@ -20,14 +20,12 @@
                 <td><?= $subdivision->square ?></td>
                 <td><?= $subdivision->address ?></td>
                 <td><a href="delete-subdivisions?id=<?=$subdivision->id?>">Удалить</a></td>
+                <td><a href="<?= app()->route->getUrl('/update_subdivision?id=' . $subdivision->id) ?>">Изменить</a></td>
             </tr>
             <?php
         }
         ?>
     </table>
     <div class="sum"><a>Подсчитать количество мест</a></div>
-    <section>
-        <div><a href="<?= app()->route->getUrl('/add_subdivision') ?>">Добавить</a></div>
-        <div><a>Изменить</a></div>
-    </section>
+    <div class="add"><a href="<?= app()->route->getUrl('/add_subdivision') ?>">Добавить</a></div>
 </div>

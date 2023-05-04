@@ -6,9 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--    Для линукса-->
-    <link rel="stylesheet" href="/docs/public/static/style.css" type="text/css">
+<!--    <link rel="stylesheet" href="/docs/public/static/style.css" type="text/css">-->
 <!--    Для винды-->
-<!--    <link rel="stylesheet" href="../../public/static/style.css" type="text/css">-->
+    <link rel="stylesheet" href="../../public/static/style.css" type="text/css">
     <title>Pop it MVC</title>
 </head>
 <body>

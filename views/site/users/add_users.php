@@ -1,5 +1,6 @@
 <div class="add_users">
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Имя пользователя<input type="text" name="name"></label>
         <a>Роль</a>
         <select class="form-select" aria-label="" name="id_role">

@@ -1,5 +1,6 @@
 <div class="add_subdivision">
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Название подразделения<input type="text" name="name_subdivision"></label>
         <label>Количество кабинетов<input type="number" name="number_cabinets"></label>
         <a>Тип подразделения</a>
