@@ -1,5 +1,9 @@
 <div class="premises">
     <h1>Список кабинетов</h1>
+    <form method="post" class="search-from">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+        <input type="text" name="search" placeholder="Поиск" class="search">
+    </form>
     <div class="sort">
         <a>Сортировать по номеру</a>
         <a>Сортировать по названию</a>
@@ -34,5 +38,5 @@
 
     </table>
     <div class="sum"><a>Подсчитать общую площадь</a></div>
-    <div class="add"><a href="<?= app()->route->getUrl('/add_premises') ?>">Добавить</a></div>
+    <div class="add"><a href="<?= app()->route->getUrl('/add_premises')?>">Добавить</a></div>
 </div>

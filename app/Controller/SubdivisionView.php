@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\Premise;
 use Model\Subdivision;
 use Model\Type_Subdivision;
 use Src\Request;
@@ -10,8 +11,12 @@ use Src\View;
 class SubdivisionView{
     public function subdivisions(Request $request): string
     {
-        $subdivisions = Subdivision::all();
-        return (new View())->render('site.subdivisions.subdivisions', ['subdivisions' => $subdivisions]);
+        if ($request->method === "POST") {
+            $subdivisions_list = Subdivision::where('name_subdivision', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $subdivisions_list = Subdivision::orderBy('name_subdivision')->get();
+        }
+        return (new View())->render('site.subdivisions.subdivisions', ['subdivisions' => $subdivisions_list]);
     }
 
     public function add_subdivision(Request $request): string
@@ -44,7 +49,7 @@ class SubdivisionView{
     public function delete_subdivisions(Request $request): void
     {
         if (Subdivision::where('id', $request->id)->delete()) {
-            app()->route->redirect('/subdivision');
+            app()->route->redirect('/subdivisions');
         }
     }
 

@@ -7,7 +7,7 @@
         <label>Площадь<input type="number" name="square"></label>
         <a>Подразделение</a>
         <select class="form-select" aria-label="" name="id_subdivision">
-            <option selected>Выбирите подразделение</option>
+            <option selected>Выберите подразделение</option>
             <?php
             foreach ($subdivisions as $subdivision) {?>
                 <option value="<?=$subdivision->id ?>"><?=$subdivision->name_subdivision?></option>
@@ -17,7 +17,7 @@
         </select>
         <a>Тип помещения</a>
         <select class="form-select" aria-label="" name="id_type">
-            <option selected>Выбирите тип помещения</option>
+            <option selected>Выберите тип помещения</option>
             <?php
             foreach ($type_premises as $type_premise) {?>
                 <option value="<?=$type_premise->id ?>"><?=$type_premise->type?></option>

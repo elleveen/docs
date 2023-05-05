@@ -1,5 +1,9 @@
 <div class="subdivisions">
     <h1>Список подразделений</h1>
+    <form method="post" class="search-from">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+        <input type="text" name="search" placeholder="Поиск" class="search">
+    </form>
     <table>
         <tr>
             <th>ID</th>

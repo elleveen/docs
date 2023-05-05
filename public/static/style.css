@@ -1,4 +1,13 @@
 /*main*/
+.search{
+    background-color: #c7d3bf;;
+    height: 30px;
+    width: 1155px;
+    margin-left: 345px;
+    border: none;
+    outline: none;
+
+}
 
 header>nav{
     background-color: #7c9a92;
@@ -133,6 +142,7 @@ a{
     height: 30px;
 }
 .premises>.sort{
+    margin-top: 20px;
     margin-left: 1130px;
     color: #314448;
 
@@ -233,9 +243,11 @@ a{
 .subdivisions>h1{
     padding-top: 10px;
     color: #314448;
-}
-.subdivisions>table, h1{
     margin-left: 345px;
+}
+.subdivisions>table{
+    margin-left: 345px;
+    margin-top: 20px;
 }
 .subdivisions>table>tbody>tr>th{
     width: 189.2px;
@@ -309,9 +321,11 @@ a{
 /*users*/
 .users>h1{
     color: #314448;
-}
-.users>table,.users>h1{
     margin-left: 345px;
+}
+.users>table{
+    margin-left: 345px;
+    margin-top: 20px;
 }
 .users>table>tbody>tr>th{
     width: 223px;

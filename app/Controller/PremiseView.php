@@ -12,10 +12,14 @@ class PremiseView {
     public function premises(Request $request): string
     {
 
-        $premises = Premise::all();
         $subdivisions = Subdivision::all();
+        if ($request->method === "POST") {
+            $premises_list = Premise::where('name', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $premises_list = Premise::orderBy('name')->get();
+        }
 
-        return (new View())->render('site.premises.premises', ['premises' => $premises, 'subdivisions' => $subdivisions,]);
+        return (new View())->render('site.premises.premises', ['premises' => $premises_list, 'subdivisions' => $subdivisions,]);
     }
     public function add_premises(Request $request): string
     {
@@ -52,6 +56,14 @@ class PremiseView {
     public function delete_premises(Request $request): void
     {
         if (Premise::where('id', $request->id)->delete()) {
+            app()->route->redirect('/premises');
+        }
+    }
+
+    public function sort_number(Request $request): void
+    {
+        $sorted = Premise::all();
+        if($sorted->sortBy('number')->first()){
             app()->route->redirect('/premises');
         }
     }

@@ -13,8 +13,12 @@ use Src\Request;
 class UsersView{
     public function users(Request $request): string
     {
-        $users = User::all();
-        return (new View())->render('site.users.users', ['users' => $users]);
+        if ($request->method === "POST") {
+            $users_list = User::where('name', 'like', '%' . $request->search . '%')->get();
+        } else {
+            $users_list = User::orderBy('name')->get();
+        }
+        return (new View())->render('site.users.users', ['users' => $users_list]);
     }
     public function add_users(Request $request): string
     {
