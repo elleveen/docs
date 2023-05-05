@@ -13,8 +13,6 @@ Route::add(['GET', 'POST'], '/update_premises', [Controller\PremiseView::class, 
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/delete-premises', [Controller\PremiseView::class, 'delete_premises'])
     ->middleware('auth');
-Route::add('GET', '/sort-number', [Controller\PremiseView::class, 'sort_number'])
-    ->middleware('auth');
 Route::add(['GET', 'POST'], '/subdivisions', [Controller\SubdivisionView::class, 'subdivisions'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/add_subdivision', [Controller\SubdivisionView::class, 'add_subdivision'])
@@ -34,5 +32,6 @@ Route::add(['GET', 'POST'], '/update_user', [Controller\UsersView::class, 'updat
     ->middleware('auth', 'can:admin');
 Route::add(['GET', 'POST'], '/delete-user', [Controller\UsersView::class, 'delete_users'])
     ->middleware('auth', 'can:admin');
+
 
 

@@ -11,6 +11,9 @@
             <th>Роль</th>
             <th>Логин</th>
             <th>Пароль</th>
+            <th>Аватарка</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
         foreach ($users as $user) {
@@ -21,6 +24,7 @@
                     <td><?= $user->id_role ?></td>
                     <td><?= $user->login ?></td>
                     <td><?= $user->password ?></td>
+                    <td><img class="cover" src="../../<?= $user->cover ?>"></td>
                     <td><a href="delete-user?id=<?=$user->id?>">Удалить</a></td>
                     <td><a href="<?= app()->route->getUrl('/update_user?id=' . $user->id) ?>">Изменить</a></td>
                     </tr>

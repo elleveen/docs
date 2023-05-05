@@ -12,6 +12,8 @@
             <th>Тип подразделения</th>
             <th>Площадь</th>
             <th>Адрес</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
         foreach ($subdivisions as $subdivision) {

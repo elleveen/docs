@@ -129,7 +129,7 @@ a{
     margin-top: 15px;
 }
 .premises>table>tbody>tr>th{
-    width: 162px;
+    width: 125.5px;
     background-color: #7c9a92;
     color: whitesmoke;
     height: 40px;
@@ -142,8 +142,8 @@ a{
     height: 30px;
 }
 .premises>.sort{
-    margin-top: 20px;
-    margin-left: 1130px;
+    margin-top: -20px;
+    margin-left: 1255px;
     color: #314448;
 
 }
@@ -156,7 +156,7 @@ a{
 }
 .add{
     margin-left: 1440px;
-    margin-top: -20px;
+    margin-top: 20px;
 
 }
 .add>a{
@@ -250,7 +250,7 @@ a{
     margin-top: 20px;
 }
 .subdivisions>table>tbody>tr>th{
-    width: 189.2px;
+    width: 141.6px;
     background-color: #7c9a92;
     color: whitesmoke;
     height: 40px;
@@ -260,6 +260,9 @@ a{
     color: #314448;
     text-align: center;
     height: 30px;
+}
+.subdivisions>.add{
+    margin-top: -20px;
 }
 
 /*add_subdivision*/
@@ -328,10 +331,13 @@ a{
     margin-top: 20px;
 }
 .users>table>tbody>tr>th{
-    width: 223px;
+    width: 110px;
     background-color: #7c9a92;
     color: whitesmoke;
     height: 40px;
+}
+.users>table>tbody>tr>th:nth-child(6){
+    width: 230px;
 }
 .users>table>tbody>tr>td{
     background-color: #c7d3bf;

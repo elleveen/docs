@@ -6,6 +6,7 @@ use Model\Premise;
 use Model\Subdivision;
 use Model\Type_Premise;
 use Src\Request;
+use Src\Validator\Validator;
 use Src\View;
 
 class PremiseView {
@@ -14,21 +15,56 @@ class PremiseView {
 
         $subdivisions = Subdivision::all();
         if ($request->method === "POST") {
-            $premises_list = Premise::where('name', 'like', '%' . $request->search . '%')->get();
+
+            if ($request->sort === "name") {
+                $premises_list = Premise::orderBy('name')->get();
+            }
+            else if ($request->sort === 'number') {
+                $premises_list = Premise::orderBy('number')->get();
+            }
+            else if ($request->search) {
+                $premises_list = Premise::where('name', 'like', '%' . $request->search . '%')->get();
+            }
         } else {
-            $premises_list = Premise::orderBy('name')->get();
+            $premises_list = Premise::all();
         }
 
-        return (new View())->render('site.premises.premises', ['premises' => $premises_list, 'subdivisions' => $subdivisions,]);
+        if ($request->method === "POST" && $request->sum) {
+            $sum = Premise::all()->get('square')->sum();;
+        }
+        else{
+            $sum = 0;
+        }
+        return (new View())->render('site.premises.premises', ['premises' => $premises_list,
+            'subdivisions' => $subdivisions, 'sum' => $sum]);
     }
     public function add_premises(Request $request): string
     {
         $subdivisions = Subdivision::all();
         $premises = Premise::all();
         $type_premises = Type_Premise::all();
-        if ($request->method === 'POST' && Premise::create($request->all())) {
-            app()->route->redirect('/premises');
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'number' => ['required', 'number'],
+                'number_of_seates' => ['required', 'number'],
+                'square' => ['required', 'number'],
+            ], [
+                'required' => 'Поле :field пусто',
+                'number' => 'Поле :field должно содержать только цифры'
+            ]);
+            if ($validator->fails()) {
+                $message = json_encode($validator->errors(), JSON_UNESCAPED_UNICODE);
+                return new View('site.premises.add_premises', ['premises' => $premises,
+                    'type_premises' => $type_premises,
+                    'subdivisions' => $subdivisions,
+                    'errors' => $message]);
+            }
+            if(Premise::create($request->all())){
+                app()->route->redirect('/premises');
+            }
         }
+
         return (new View())->render('site.premises.add_premises', ['premises' => $premises, 'subdivisions' => $subdivisions,
             'type_premises' => $type_premises]);
     }

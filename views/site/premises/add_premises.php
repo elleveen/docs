@@ -1,4 +1,5 @@
 <div class="add_premises">
+    <p><?= $errors?></p>
     <form method="post">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Название кабинета<input type="text" name="name"></label>

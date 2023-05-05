@@ -1,5 +1,5 @@
 <div class="add_users">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Имя пользователя<input type="text" name="name"></label>
         <a>Роль</a>
@@ -14,6 +14,7 @@
         </select>
         <label>Логин<input type="text" name="login"></label>
         <label>Пароль<input type="text" name="password"></label>
+        <input type="file" name="cover_file">
         <button>Добавить</button>
     </form>
 </div>

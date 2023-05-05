@@ -4,10 +4,20 @@
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <input type="text" name="search" placeholder="Поиск" class="search">
     </form>
-    <div class="sort">
-        <a>Сортировать по номеру</a>
-        <a>Сортировать по названию</a>
-    </div>
+    <form method="post" class="sum">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+        <input name="sum" type="hidden" value="sum">
+        <button>Подсчитать сумму</button>
+    </form>
+    <form method="post" class="sort">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+        <select class="form-select" aria-label="" name="sort">
+            <option selected>Сортировать:</option>
+            <option value="name">по названию</option>
+            <option value="number">по номеру кабинета</option>
+        </select>
+        <button>Сортировать</button>
+    </form>
     <table>
         <tr>
             <th>ID</th>
@@ -17,6 +27,8 @@
             <th>Площадь кабинета</th>
             <th>Подразделение</th>
             <th>Тип помещения</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php
         foreach ($premises as $premise) {
@@ -37,6 +49,6 @@
         ?>
 
     </table>
-    <div class="sum"><a>Подсчитать общую площадь</a></div>
+<!--    <div class="sum"><a href="premises?sum=sum">Подсчитать общую площадь</a></div>-->
     <div class="add"><a href="<?= app()->route->getUrl('/add_premises')?>">Добавить</a></div>
 </div>
