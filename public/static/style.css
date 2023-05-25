@@ -142,7 +142,7 @@ a{
     height: 30px;
 }
 .premises>.sort{
-    margin-top: -20px;
+    margin-top: -35px;
     margin-left: 1255px;
     color: #314448;
 
@@ -167,16 +167,18 @@ a{
     color: #c7d3bf;
     cursor: pointer;
 }
-.sum{
-    color: #314448;;
+
+.suma{
+    margin-top: 30px;
     margin-left: 345px;
-    margin-top: 20px;
+
 }
 
-.sum:hover {
-    color: #c7d3bf;
-    cursor: pointer;
+.suma>p{
+    margin-top: -20px;
+    margin-left: 200px;
 }
+
 
 /*add_premises*/
 .add_premises>h3{
@@ -262,7 +264,7 @@ a{
     height: 30px;
 }
 .subdivisions>.add{
-    margin-top: -20px;
+    margin-top: -42.5px;
 }
 
 /*add_subdivision*/
@@ -304,21 +306,6 @@ a{
 }
 .add_subdivision>form>input:focus{
     border-bottom: 2px solid #536d6c;
-}
-.add_subdivision>form>button{
-    color: #314448;
-    margin-left: 400px;
-    margin-top: 40px;
-    font-size: 20px;
-    width: 435px;
-    height: 40px;
-    border:none;
-}
-.add_subdivision>form>button:hover{
-    border:none;
-    cursor: pointer;
-    background-color: #c7d3bf;
-    color: white;
 }
 
 /*users*/
@@ -405,5 +392,18 @@ a{
     cursor: pointer;
     background-color: #c7d3bf;
     color: white;
+}
+
+#sum{
+    visibility: hidden;
+}
+.summ{
+    color: #314448;
+    margin-left: 345px;
+    margin-top: 40px;
+    font-size: 20px;
+    height: 40px;
+    border:none;
+    font-size: 16px;
 }
 

@@ -16,7 +16,9 @@ class SubdivisionView{
         } else {
             $subdivisions_list = Subdivision::orderBy('name_subdivision')->get();
         }
-        return (new View())->render('site.subdivisions.subdivisions', ['subdivisions' => $subdivisions_list]);
+        $sum = Subdivision::sum('number_cabinets');
+
+        return (new View())->render('site.subdivisions.subdivisions', ['subdivisions' => $subdivisions_list, 'sum' => $sum]);
     }
 
     public function add_subdivision(Request $request): string

@@ -1,14 +1,20 @@
+<header>
+    <script defer src="../public/script.js"></script>
+</header>
 <div class="premises">
     <h1>Список кабинетов</h1>
     <form method="post" class="search-from">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <input type="text" name="search" placeholder="Поиск" class="search">
     </form>
-    <form method="post" class="sum">
-        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
-        <input name="sum" type="hidden" value="sum">
-        <button>Подсчитать сумму</button>
-    </form>
+<!--    <form method="post" class="sum">-->
+<!--        <input name="csrf_token" type="hidden" value="--><?php //= app()->auth::generateCSRF() ?><!--"/>-->
+<!--        <button type="submit">Подсчитать сумму</button>-->
+<!--    </form>-->
+    <div class="suma">
+        <button id="sum-button">Подсчитать общую площадь</button>
+        <p id="sum"><?= $result ?></p>
+    </div>
     <form method="post" class="sort">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <select class="form-select" aria-label="" name="sort">

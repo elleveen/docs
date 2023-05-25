@@ -1,3 +1,6 @@
+<header>
+    <script defer src="../public/script.js"></script>
+</header>
 <div class="subdivisions">
     <h1>Список подразделений</h1>
     <form method="post" class="search-from">
@@ -32,6 +35,9 @@
         }
         ?>
     </table>
-    <div class="sum"><a>Подсчитать количество мест</a></div>
+    <div class="summ">
+        <button id="sum-button">Подсчитать количество мест</button>
+        <p id="sum"><?= $sum ?></p>
+    </div>
     <div class="add"><a href="<?= app()->route->getUrl('/add_subdivision') ?>">Добавить</a></div>
 </div>

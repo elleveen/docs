@@ -9,7 +9,8 @@ use Src\Request;
 use Src\Validator\Validator;
 use Src\View;
 
-class PremiseView {
+class PremiseView
+{
     public function premises(Request $request): string
     {
 
@@ -18,26 +19,20 @@ class PremiseView {
 
             if ($request->sort === "name") {
                 $premises_list = Premise::orderBy('name')->get();
-            }
-            else if ($request->sort === 'number') {
+            } else if ($request->sort === 'number') {
                 $premises_list = Premise::orderBy('number')->get();
-            }
-            else if ($request->search) {
+            } else if ($request->search) {
                 $premises_list = Premise::where('name', 'like', '%' . $request->search . '%')->get();
             }
         } else {
             $premises_list = Premise::all();
         }
+        $result = Premise::sum('square');
 
-        if ($request->method === "POST" && $request->sum) {
-            $sum = Premise::all()->get('square')->sum();;
-        }
-        else{
-            $sum = 0;
-        }
         return (new View())->render('site.premises.premises', ['premises' => $premises_list,
-            'subdivisions' => $subdivisions, 'sum' => $sum]);
+            'subdivisions' => $subdivisions, 'result' => $result]);
     }
+
     public function add_premises(Request $request): string
     {
         $subdivisions = Subdivision::all();
@@ -60,20 +55,23 @@ class PremiseView {
                     'subdivisions' => $subdivisions,
                     'errors' => $message]);
             }
-            if(Premise::create($request->all())){
+            if (Premise::create($request->all())) {
                 app()->route->redirect('/premises');
             }
+
+
         }
 
         return (new View())->render('site.premises.add_premises', ['premises' => $premises, 'subdivisions' => $subdivisions,
             'type_premises' => $type_premises]);
     }
+
     public function update_premises(Request $request)
     {
         $subdivisions = Subdivision::all();
         $type_premises = Type_Premise::all();
-        $premises= Premise::where('id', $request->id)->first();
-        if($request->method === 'POST') {
+        $premises = Premise::where('id', $request->id)->first();
+        if ($request->method === 'POST') {
             $updatePremise = [
                 'name' => $request->get('name'),
                 'number' => $request->get('number'),
@@ -95,12 +93,6 @@ class PremiseView {
             app()->route->redirect('/premises');
         }
     }
-
-    public function sort_number(Request $request): void
-    {
-        $sorted = Premise::all();
-        if($sorted->sortBy('number')->first()){
-            app()->route->redirect('/premises');
-        }
-    }
 }
+
+
