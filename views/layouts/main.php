@@ -12,6 +12,7 @@
     <title>Pop it MVC</title>
 </head>
 <body>
+
 <header>
     <nav>
         <a href="<?= app()->route->getUrl('/hello') ?>">
@@ -40,6 +41,5 @@
 <main>
     <?= $content ?? '' ?>
 </main>
-
 </body>
 </html>
