@@ -1,7 +1,7 @@
 <?php
 return [
     //Адрес относительно домена
-    'root' => '',
+    'root' => 'docs',
     'routes' => 'routes',
     'views' => 'views'
 ];

@@ -1,5 +1,5 @@
 <header>
-    <script defer src="../public/script.js"></script>
+
 </header>
 <div class="premises">
     <h1>Список кабинетов</h1>
@@ -12,8 +12,8 @@
 <!--        <button type="submit">Подсчитать сумму</button>-->
 <!--    </form>-->
     <div class="suma">
-        <button id="sum-button">Подсчитать общую площадь</button>
-        <p id="sum"><?= $result ?></p>
+        <button id="button-square">Подсчитать общую площадь</button>
+        <p class="hidden" id="square"><?= $result ?></p>
     </div>
     <form method="post" class="sort">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
@@ -43,7 +43,7 @@
                         <td><?=$premise->id ?></td>
                         <td><?= $premise->name ?></td>
                         <td><?= $premise->number ?></td>
-                        <td><?= $premise->number_of_seates ?></td>
+                        <td><?= $premise->number_seates ?></td>
                         <td><?= $premise->square ?></td>
                         <td><?= $premise->id_subdivision ?></td>
                         <td><?= $premise->id_type  ?></td>

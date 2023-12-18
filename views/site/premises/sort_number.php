@@ -21,7 +21,7 @@
                 <td><?=$premise->id ?></td>
                 <td><?= $premise->name ?></td>
                 <td><?= $premise->number ?></td>
-                <td><?= $premise->number_of_seates ?></td>
+                <td><?= $premise->number_seates ?></td>
                 <td><?= $premise->square ?></td>
                 <td><?= $premise->id_subdivision ?></td>
                 <td><?= $premise->id_type  ?></td>

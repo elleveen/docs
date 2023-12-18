@@ -410,10 +410,10 @@ a:hover{
     color: white;
 }
 
-#sum{
+.hidden {
     visibility: hidden;
 }
-.summ{
+.suma, .summ{
     color: #314448;
     margin-left: 345px;
     margin-top: 40px;

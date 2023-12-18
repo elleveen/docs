@@ -1,10 +1,10 @@
 <div class="add_premises">
-    <p><?= $errors?></p>
+<!--    <p>--><?php //= $errors?><!--</p>-->
     <form method="post">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Название кабинета<input type="text" name="name"></label>
         <label>Номер кабинета<input type="text" name="number"></label>
-        <label>Количество мест<input type="number" name="number_of_seates"></label>
+        <label>Количество мест<input type="number" name="number_seates"></label>
         <label>Площадь<input type="number" name="square"></label>
         <a>Подразделение</a>
         <select class="form-select" aria-label="" name="id_subdivision">

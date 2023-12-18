@@ -16,12 +16,15 @@ class PremiseView
 
         $subdivisions = Subdivision::all();
         if ($request->method === "POST") {
+            $payload = $request->all();
 
-            if ($request->sort === "name") {
-                $premises_list = Premise::orderBy('name')->get();
-            } else if ($request->sort === 'number') {
-                $premises_list = Premise::orderBy('number')->get();
-            } else if ($request->search) {
+            if(isset($payload['sort'])) {
+                if ($request->sort === "name") {
+                    $premises_list = Premise::orderBy('name')->get();
+                } else if ($request->sort === 'number') {
+                    $premises_list = Premise::orderBy('number')->get();
+                }
+            } else if(isset($payload['search'])) {
                 $premises_list = Premise::where('name', 'like', '%' . $request->search . '%')->get();
             }
         } else {
